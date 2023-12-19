@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 
 
 void main() {
-  final game = FlappyBirdGame();
+  final game = FlappyBirdGame(); 
 
   runApp(
-    GameWidget(game: game)
+    GameWidget(game: game)  //gamewidget is come from flame 
   );
 }
 

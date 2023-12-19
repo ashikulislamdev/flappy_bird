@@ -1,4 +1,4 @@
-class Asseets{
+class Assets{ //define necessery assets path
   static const background = 'background.png';
   static const ground = 'ground.png';
   static const clouds = 'clouds.png';
