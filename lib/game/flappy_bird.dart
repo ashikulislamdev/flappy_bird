@@ -1,13 +1,14 @@
 import 'dart:async';
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
+import 'package:flame/input.dart';
 import 'package:fleppy_bird/component/background.dart';
 import 'package:fleppy_bird/component/bird.dart';
 import 'package:fleppy_bird/component/ground.dart';
 import 'package:fleppy_bird/component/pipe_group.dart';
 import 'package:fleppy_bird/game/configeration.dart';
 
-class FlappyBirdGame extends FlameGame{ //make the class which extends flamegame.
+class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection{ //make the class which extends flamegame.
   FlappyBirdGame();
 
   late Bird bird;
@@ -24,6 +25,12 @@ class FlappyBirdGame extends FlameGame{ //make the class which extends flamegame
     );
 
     interval.onTick = () => add(PipeGroup());
+  }
+
+  @override
+  void onTap() {
+    bird.fly();
+    super.onTap();
   }
 
   @override

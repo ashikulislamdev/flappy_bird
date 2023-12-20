@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/parallax.dart';
@@ -8,7 +9,7 @@ import 'package:fleppy_bird/game/configeration.dart';
 import 'package:fleppy_bird/game/flappy_bird.dart';
 
 //parallaxComonent to make the ground in parallax motion
-class Ground extends ParallaxComponent<FlappyBirdGame>{
+class Ground extends ParallaxComponent<FlappyBirdGame> with HasGameRef<FlappyBirdGame>{
   Ground();
 
   @override
@@ -21,6 +22,10 @@ class Ground extends ParallaxComponent<FlappyBirdGame>{
        ParallaxImage(ground, fill: LayerFill.none) 
       )
     ]);
+    add(RectangleHitbox(
+      position: Vector2(0, gameRef.size.y - GameConfig.groundHight),
+      size: Vector2(gameRef.size.x, GameConfig.groundHight)
+    ));
   }
 
   //update itself with respect to game time
