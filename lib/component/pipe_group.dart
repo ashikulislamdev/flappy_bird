@@ -41,6 +41,12 @@ class PipeGroup extends PositionComponent with HasGameRef<FlappyBirdGame>{
       removeFromParent();
     }
 
+    //after game over remove all the pipe and start new
+    if (gameRef.isHit) {
+      removeFromParent();
+      gameRef.isHit = false;
+    }
+
     super.update(dt);
   }
 }
