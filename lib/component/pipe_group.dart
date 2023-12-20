@@ -39,6 +39,8 @@ class PipeGroup extends PositionComponent with HasGameRef<FlappyBirdGame>{
     //to remove stack up to effect the game performance(when it'll out of the screen)
     if (position.x < -10) {
       removeFromParent();
+      //update the score when it's pass the screen
+      updateScore();
     }
 
     //after game over remove all the pipe and start new
@@ -49,4 +51,9 @@ class PipeGroup extends PositionComponent with HasGameRef<FlappyBirdGame>{
 
     super.update(dt);
   }
+  
+  void updateScore(){
+    gameRef.bird.score += 1;  
+  }
+
 }
